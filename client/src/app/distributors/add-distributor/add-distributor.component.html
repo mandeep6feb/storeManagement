@@ -1,0 +1,59 @@
+<div class="container-fluid mt-3">
+
+<p>
+  <a class="btn"  *ngIf="role.role_id === 1 " style="background-color: teal;color: white;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Add New Distrubutor   <i   class="fa fa-plus ml-2" aria-hidden="true" >  </i>
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+     <div class="card ">
+    <div class="card-header">
+        <h3>New Distrubutor</h3>
+    </div>
+  <div class="card card-body">
+    <form>
+        
+        <div class="row">
+            <div class="col-sm">
+            <div class="form-group">
+                <label for="f_name">Distributor Name</label>
+                <input type="text" class="form-control form-control-sm" name="distributor_name" [(ngModel)]="dist.distributor_name" id="distributor_name" placeholder="">
+            </div>
+            </div>
+            <div class="col-sm">
+            <div class="form-group">
+                <label for="f_name">Distributor Address</label>
+                <input type="text" class="form-control form-control-sm" name="distributor_address" [(ngModel)]="dist.distributor_address" id="distributor_address" placeholder="">
+            </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-sm">
+            <div class="form-group">
+                <label for="f_name">Contact Person</label>
+                <select  class="form-control form-control-sm"  (ngModelChange)="getUser($event)"
+                    [(ngModel)]="dist.userId" name="userId"
+                    id="userId">
+                    <option *ngFor="let usr of users" value="{{usr._id}}">{{usr?.f_name}} {{usr?.l_name}}</option>
+                </select>
+            </div>
+            </div>
+            <div class="col-sm">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Contact Number</label>
+                <input type="text" readonly class="form-control form-control-sm" name="contactNumber" [(ngModel)]="contactNumber" placeholder="" id="contactNumber">
+            </div>
+            </div>
+            
+        </div>
+            <button type="submit" (click)="postRegister()"   class="btn1 btn-primary ">
+                    Save
+            </button>
+
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+

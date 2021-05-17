@@ -1,0 +1,45 @@
+   <div class="card ">
+    <div class="card-header">
+        <h3>All Users</h3>
+    </div>
+  <div class="card-body">
+      <div class="table-responsive" style="overflow-x: scroll;">
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Role</th>
+            <th scope="col" *ngIf="role.role_id === 1">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usr of users;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{usr?.f_name}} {{usr?.l_name}}</td>
+            <td>{{usr?.username}}</td>
+            <td>{{usr?.email}}</td>
+            <td>{{usr?.contact_number}}</td>
+            <td>
+                <span *ngIf="usr.role_id === 1"><h5> <span class="badge badge-success">Owner</span></h5></span>
+                <span *ngIf="usr.role_id !== 1">Normal User</span>
+            </td>
+            <td class="p-2 pt-3" >
+                <div *ngIf="role.role_id === 1 ">
+                    <button *ngIf="usr.role_id !== 1 " type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" title="edit user" [routerLink]="['/user/edit/' + usr?._id]">
+                        <i   class="fa fa-pencil-square-o" aria-hidden="true" >  </i>
+                    </button>
+                    <button *ngIf="usr.role_id !== 1 " type="button" data-toggle="tooltip" data-placement="top" title="delete" (click)="del(usr._id)" class="btn btn-warning btn-sm ml-1" >
+                        <i   class="fa fa-trash" aria-hidden="true" >  </i>
+                    </button>
+                </div>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    </div>
+    </div>

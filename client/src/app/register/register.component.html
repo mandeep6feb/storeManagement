@@ -1,0 +1,102 @@
+<div class="container mt-5">
+<div class="card">
+    <div class="card-header">
+        <h3>Sign Up</h3>
+    </div>
+    <div class="card-body">
+    <form>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="f_name">User Name</label>
+            <input type="text" class="form-control form-control-sm" name="username" [(ngModel)]="userInfo.username" id="username" placeholder="">
+          </div>
+        </div>
+    </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="f_name">First Name</label>
+            <input type="text" class="form-control form-control-sm" name="f_name" [(ngModel)]="userInfo.f_name" id="f_name" placeholder="">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="f_name">Last Name</label>
+            <input type="text" class="form-control form-control-sm" name="l_name" [(ngModel)]="userInfo.l_name" id="l_name" placeholder="">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control form-control-sm" name="email" [(ngModel)]="userInfo.email" placeholder="" id="email">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Contact No.</label>
+            <input type="number" class="form-control form-control-sm" name="contact_number" [(ngModel)]="userInfo.contact_number" placeholder="" id="contact_number">
+          </div>
+        </div>
+    </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="inputPassword4">Address</label>
+            <input type="text" class="form-control form-control-sm"  name="address" [(ngModel)]="userInfo.address" placeholder="" id="address">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="inputPassword4">City</label>
+            <input type="test" class="form-control form-control-sm"  name="city" [(ngModel)]="userInfo.city" placeholder="" id="city">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="inputPassword4">State</label>
+            <input type="text" class="form-control form-control-sm"  name="state" [(ngModel)]="userInfo.state" placeholder="" id="state">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="inputPassword4">Country</label>
+            <input type="text" class="form-control form-control-sm"  name="country" [(ngModel)]="userInfo.country" placeholder="" id="country">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control form-control-sm"  name="inputPassword4" [(ngModel)]="userInfo.password" placeholder="" id="inputPassword4">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="inputPassword4">Confirm Password</label>
+            <input type="text" class="form-control form-control-sm"  name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="" id="confirmPassword">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+         <button type="submit" *ngIf="update === false" (click)="postRegister()" class="btn1 btn-primary ">
+                  Sign Up 
+        </button>
+        <button type="submit" *ngIf="update === true" (click)="updateUser()" class="btn1 btn-primary ">
+                  Update
+        </button>
+        </div>
+        <div class="col-sm">
+          <a class="small" [routerLink]="['/login']">Already signup? Go for login!</a>
+        </div>
+      </div>
+    </form>
+    </div>
+    </div>
+   </div>

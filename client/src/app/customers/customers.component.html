@@ -1,0 +1,33 @@
+ <div class="container-fluid">
+    <div class="card m-3 mt-3">
+    <div class="card-header">
+        <h3>All Customer</h3>
+    </div>
+  <div class="card-body">
+      <div class="table-responsive" style="overflow-x: scroll;">
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Custome Contact</th>
+            <th scope="col">Customer Email</th>
+            <th scope="col">Last Bill On</th>
+            <th scope="col">Last Bill Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usr of users;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{usr?.f_name}} {{usr?.l_name}}</td>
+            <td>{{usr?.contact_number}}</td>
+            <td>{{usr?.email}}</td>
+            <td>{{usr?.createLastBill | date: 'short'}}</td>
+            <td>{{usr?.billAmount | currency: 'INR'}}</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    </div>
+    </div>
+    </div>

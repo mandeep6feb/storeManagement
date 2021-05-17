@@ -1,0 +1,29 @@
+
+<div class="container mt-5">
+    <div class="card">
+  <div class="card-header">
+   <h5> Hi {{user?.f_name}} <button *ngIf="role.role_id !== 1" class="btn btn-primary btn-sm float-right" [routerLink]="['/profile/' + user?._id]" type="submit">Edit Profile</button></h5>
+  </div>
+  <div class="row">
+      <div class="col-sm">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong> Full Name </strong> </li>
+            <li class="list-group-item"><strong> Username </strong> </li>
+            <li class="list-group-item"><strong> Email </strong> </li>
+            <li class="list-group-item"><strong> Contact Number </strong></li>
+            <li class="list-group-item" *ngIf="role.role_id !== 1"><strong>Address</strong> </li>
+        </ul>
+      </div>
+      <div class="col-sm">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"> {{user?.f_name}} {{user?.l_name}}</li>
+            <li class="list-group-item"> {{user?.username}}</li>
+            <li class="list-group-item">{{user?.email}}</li>
+            <li class="list-group-item">{{user?.contact_number}}</li>
+            <li class="list-group-item" *ngIf="role.role_id !== 1">{{user?.address}}, {{user?.city}}, {{user?.state}}, {{user?.country}}</li>
+        </ul>
+      </div>
+  </div>
+  
+</div>
+</div>

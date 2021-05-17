@@ -1,0 +1,88 @@
+.img2:hover {
+    height: 387px;
+}
+
+.card {
+  box-shadow: 0px 0px 15px 5px rgb(218, 218, 218) ;
+}
+.btn1 {
+  display: inline-block;
+  background: white;
+  color: black;
+  border: 3px solid #fff;
+  padding: 0.6em 3em;
+  letter-spacing: 1px;
+  vertical-align: top;
+  border-radius: 0;
+  font-size: 14px;
+  transition: all 300ms;
+  cursor: pointer;
+}
+.btn1:hover {
+background: black;
+color: #fff;
+border: 3px solid #000;
+}
+
+  /* #f1_container {
+    perspective: 1000;
+  }
+ 
+  .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  .face.back {
+    display: block;
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+  }
+
+  #f1_container {
+    position: relative;
+    margin: 10px auto;
+    width: 450px;
+    height: 281px;
+    z-index: 1;
+  }
+  #f1_container {
+    perspective: 1000;
+  }
+  #f1_card {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 1.0s linear;
+  }
+  #f1_container:hover #f1_card {
+    transform: rotateY(180deg);
+    box-shadow: -5px 5px 5px #aaa;
+  }
+  .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  .face.back {
+    display: block;
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    background-color: #aaa;
+  } */
+
+   /* .img2 {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 1.0s linear;
+  }
+  .img2:hover {
+    transform: rotateY(180deg);
+    box-shadow: -5px 5px 5px #aaa;
+  } */

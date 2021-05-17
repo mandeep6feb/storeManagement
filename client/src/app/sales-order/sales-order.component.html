@@ -1,0 +1,170 @@
+<div class="container-fluid mt-3">
+
+<p>
+  <a class="btn ml-3" style="background-color: rgb(15, 40, 80);color: white;" data-toggle="collapse" href="#collapseE" role="button" aria-expanded="false" aria-controls="collapseE">
+    Create New Sale Order   <i   class="fa fa-plus ml-2" aria-hidden="true" >  </i>
+  </a>
+</p>
+<div class="collapse" id="collapseE">
+    <div class="card ">
+    <div class="card-header">
+        <h3>Add Oder</h3>
+    </div>
+  <div class="card card-body">
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    <label for="Product" style="font-size: 14px"
+                        class="col-sm-3 col-form-label">Customer Name</label>
+                    <div class="col-sm-9">
+                       <select class="form-control form-control-sm"
+                                [(ngModel)]="order.userId" name="customer_group" (ngModelChange)="getCustomerBy($event)"
+                                id="Categories">
+                                <option value="Default" *ngFor="let cust of customers" value="{{cust?._id}}">{{cust?.f_name}} {{cust?.l_name}}</option>
+                            </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label class="col-sm-3 col-form-label float-right"><strong> Date: </strong> {{date | date: 'dd/mm/yy'}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                 <div class="form-group row">
+                    <label for="Product" style="font-size: 14px"
+                        class="col-sm-3 col-form-label">Customer Address</label>
+                    <div class="col-sm-9">
+                        <input type="text" (ngModelChange)="upadteCustomeAddress($event)" class="form-control form-control-sm" name="address"
+                            [(ngModel)]="address" id="address"
+                            placeholder="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                 <div class="form-group row">
+                    <label for="Product" style="font-size: 14px"
+                        class="col-sm-3 col-form-label">Customer Number</label>
+                    <div class="col-sm-9">
+                        <input type="text" (ngModelChange)="upadteCustomeNumber($event)" class="form-control form-control-sm" name="contact_number"
+                            [(ngModel)]="contact_number" id="contact_number"
+                            placeholder="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-responsive-sm">
+            <thead>
+                <tr>
+                    <th style="font-size: 14px">Product</th>
+                    <th style="font-size: 14px">Manufacturer</th>
+                    <th style="font-size: 14px">Quantity</th>
+                    <th style="font-size: 14px">Rate</th>
+                    <th style="font-size: 14px">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="form-group row m-1">
+                            <select class="form-control form-control-sm"
+                                [(ngModel)]="order.productID" name="customer_group" (ngModelChange)="getProductsBy($event)"
+                                id="Categories">
+                                <option value="Default" *ngFor="let prod of products" value="{{prod?._id}}">{{prod?.product_name}}</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group row m-1">
+                            <input  type="text"
+                                [(ngModel)]="manufacturer" readonly name="Priority" autofocus
+                                class="form-control form-control-sm" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group row m-1">
+                            <input  type="number" (ngModelChange)="upadteQuantity($event)"
+                                [(ngModel)]="quantity" name="quantity" autofocus
+                                class="form-control form-control-sm" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group row m-1">
+                            <input  type="number" readonly 
+                                [(ngModel)]="rate" name="price" autofocus
+                                class="form-control form-control-sm" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group row m-1">
+                            <input  type="number" readonly
+                                [(ngModel)]="amount" name="price" autofocus
+                                class="form-control form-control-sm" />
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+        <div class="row">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4">
+                <div class="form-group row">
+                    <label for="Product" style="font-size: 14px"
+                        class="col-sm-3 col-form-label">Gross Amount</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control form-control-sm" name="amount"
+                            [(ngModel)]="amount" id="amount"
+                            placeholder="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4">
+                 <div class="form-group row">
+                    <label for="Product" style="font-size: 14px"
+                        class="col-sm-3 col-form-label">Discount</label>
+                    <div class="col-sm-9">
+                        <input type="number" (ngModelChange)="upadteQuantityWithDiscount($event)" class="form-control form-control-sm" name="discount"
+                            [(ngModel)]="order.discount" id="discount"
+                            placeholder="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4">
+                 <div class="form-group row">
+                    <label for="Product" style="font-size: 14px"
+                        class="col-sm-3 col-form-label">Net Amount</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control form-control-sm" name="orde_amount"
+                            [(ngModel)]="order.amount" id="orde_amount"
+                            placeholder="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                
+            </div>
+            <div class="col-sm-4">
+                <a class="btn ml-3 float-right" (click)="addOrder()" style="background-color: rgb(25, 146, 41);color: white;" >
+                Create Order   </a>
+            </div>
+        </div>
+    </div>
+  </div>
+ </div>
+</div>
+</div>
+

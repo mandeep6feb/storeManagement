@@ -1,0 +1,149 @@
+<div class="container-fluid mt-3" *ngIf="update === false">
+
+<p>
+  <a class="btn" style="background-color: teal;color: white;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Add New Product   <i   class="fa fa-plus ml-2" aria-hidden="true" >  </i>
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+<form>
+      
+      <div class="row">
+          <div class="col-sm">
+          <div class="form-group">
+            <label for="f_name">Product Name</label>
+            <input type="text" class="form-control form-control-sm" name="username" [(ngModel)]="product.product_name" id="username" placeholder="">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="f_name">Manufacturer</label>
+            <input type="text" class="form-control form-control-sm" name="f_name" [(ngModel)]="product.manufacturer" id="f_name" placeholder="">
+          </div>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="f_name">price</label>
+            <input type="number" class="form-control form-control-sm" name="price" [(ngModel)]="product.price" id="price" placeholder="">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Deatils</label>
+            <input type="text" class="form-control form-control-sm" name="details" [(ngModel)]="product.details" placeholder="" id="details">
+          </div>
+        </div>
+        
+    </div>
+      <div class="row">
+          <div class="col-sm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Quantity</label>
+            <input type="number" class="form-control form-control-sm" name="quantity" [(ngModel)]="product.quantity" placeholder="" id="quantity">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="inputPassword4">Category</label>
+            <select  class="form-control form-control-sm"
+                [(ngModel)]="product.userId" name="category"
+                id="category">
+                <option *ngFor="let clr of api.categories" value="{{clr.value}}">{{clr?.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-row align-items-center">
+            <div class="form-group col-md-12" >
+            <img class="img-thumbnail" *ngIf="imageSrc"  [src]="imageSrc"  alt="" width="200" height="100"  (click)="image.click()">
+            <img *ngIf="!imageSrc"   class="img-thumbnail imagH" width="200" height="200" style="cursor: pointer;margin-bottom: 10px;margin-top: 15 px" src="{{this.api.noImagePath}}"  alt=""  (click)="image.click()">
+            <input type="file" hidden class="img-thumbnail"   (change)="handleFileInput($event.target.files)" multiple  #image name="image"/>
+        </div>
+      </div>
+      </div>
+       
+        <button type="submit" (click)="postRegister()"   class="btn1 btn-primary ">
+                  Save
+        </button>
+
+    </form>
+</div>
+</div>
+</div>
+
+<div class="container-fluid mt-3" *ngIf="update === true">
+  <div class="card">
+    <div class="card-body">
+      <form>
+      
+      <div class="row">
+          <div class="col-sm">
+          <div class="form-group">
+            <label for="f_name">Product Name</label>
+            <input type="text" class="form-control form-control-sm" name="username" [(ngModel)]="product.product_name" id="username" placeholder="">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="f_name">Manufacturer</label>
+            <input type="text" class="form-control form-control-sm" name="f_name" [(ngModel)]="product.manufacturer" id="f_name" placeholder="">
+          </div>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="f_name">price</label>
+            <input type="number" class="form-control form-control-sm" name="price" [(ngModel)]="product.price" id="price" placeholder="">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Deatils</label>
+            <input type="text" class="form-control form-control-sm" name="details" [(ngModel)]="product.details" placeholder="" id="details">
+          </div>
+        </div>
+        
+    </div>
+      <div class="row">
+          <div class="col-sm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Quantity</label>
+            <input type="number" class="form-control form-control-sm" name="quantity" [(ngModel)]="product.quantity" placeholder="" id="quantity">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="inputPassword4">Category</label>
+            <select  class="form-control form-control-sm"
+                [(ngModel)]="product.category" name="category"
+                id="category">
+                <option *ngFor="let clr of api.categories" value="{{clr.value}}">{{clr?.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-row align-items-center">
+            <div class="form-group col-md-12" >
+            <img class="img-thumbnail" *ngIf="imageSrc"  [src]="imageSrc"  alt="" width="200" height="100"  (click)="image.click()">
+            <img *ngIf="!imageSrc"   class="img-thumbnail imagH" width="200" height="200" style="cursor: pointer;margin-bottom: 10px;margin-top: 15 px" src="{{this.api.noImagePath}}"  alt=""  (click)="image.click()">
+            <input type="file" hidden class="img-thumbnail"   (change)="handleFileInput($event.target.files)" multiple  #image name="image"/>
+        </div>
+      </div>
+      </div>
+       
+        <button type="submit" (click)="updateProd()"   class="btn1 btn-primary ">
+                  Update
+        </button>
+
+    </form>
+    </div>
+  </div>
+</div>

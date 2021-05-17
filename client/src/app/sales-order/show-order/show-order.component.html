@@ -1,0 +1,45 @@
+<app-sales-order (added)="getOrders()"></app-sales-order>
+   <div class="card mt-3">
+    <div class="card-header">
+        <h3>Orders</h3>
+    </div>
+  <div class="card-body">
+      <div class="table-responsive" style="overflow-x: scroll;">
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Customer Email</th>
+            <th scope="col">Product</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Discount</th>
+            <th scope="col">Price</th>
+            <th scope="col" *ngIf="role.role_id === 1">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ord of orders; let i=index">
+            <td>{{i+1}} </td>
+            <td>{{ord?.user[0]?.f_name}} {{ord?.user[0]?.l_name}} </td>
+            <td>{{ord?.user[0]?.email}}</td>
+            <td>{{ord?.product[0]?.product_name}}</td>
+            <td>{{ord?.product[0]?.manufacturer}}</td>
+            <td>{{ord?.discount | currency: 'INR'}}</td>
+            <td>{{ord?.amount | currency: 'INR'}}</td>
+            <td class="p-2 pt-3" >
+                <div >
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" title="edit user" [routerLink]="['/order/view/' + ord?._id]">
+                        <i   class="fa fa-eye" aria-hidden="true" >  </i>
+                    </button>
+                    <button *ngIf="role.role_id === 1 " type="button" data-toggle="tooltip" data-placement="top" title="delete" class="btn btn-warning btn-sm ml-1" >
+                        <i   class="fa fa-trash" aria-hidden="true" >  </i>
+                    </button>
+                </div>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+    </div>
+    </div>
+    </div>

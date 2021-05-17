@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand"[routerLink]="['/home']" routerLinkActive="router-link-active"><strong> Store Management </strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/customers']" routerLinkActive="router-link-active" >Customers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active" >Products</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" [routerLink]="['/routePath']" routerLinkActive="router-link-active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Action
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/distributors']" routerLinkActive="router-link-active" >Distributors</a>
+          <a class="dropdown-item" [routerLink]="['/sales-orders']" routerLinkActive="router-link-active" >Sales Orders</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/track']" routerLinkActive="router-link-active" >Track live inventory</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" >
+      <button class="btn btn-outline-primary my-2 my-sm-0 mr-2" *ngIf="role.login === true" [routerLink]="['/profile']">My Profile</button>
+      <button class="btn btn-outline-primary my-2 my-sm-0 mr-2" *ngIf="role.login === true" (click)="logout()">Logout</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" *ngIf="role.role_id === 1" [routerLink]="['/signup']">Create User</button>
+    </form>
+  </div>
+</nav>
